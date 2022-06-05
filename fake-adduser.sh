@@ -46,8 +46,8 @@ debug_print "${GROUPID}"
 MAX_USERID=`cat ${PATH_PASSWD}|cut -d: -f3|sort -n|tail -1`
 debug_print "${MAX_USERID}"
 USERID=$(($MAX_USERID+1))
-echo "${USER}:x:${USERID}:${GROUPID}:${PATH_HOME}/${USER}:/bin/bash">>$PATH_PASSWD
-debug_print "${USER}:x:${USERID}:${GROUPID}:${PATH_HOME}/${USER}:/bin/bash"
+echo "${USER}:x:${USERID}:${GROUPID}::${PATH_HOME}/${USER}:/bin/bash">>$PATH_PASSWD
+debug_print "${USER}:x:${USERID}:${GROUPID}::${PATH_HOME}/${USER}:/bin/bash"
 
 sed -i -e "s/${GRP}/${GRP},${USER}/g" $PATH_GROUP
 echo "${USER}:x:${USERID}:">>$PATH_GROUP
